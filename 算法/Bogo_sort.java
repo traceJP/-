@@ -4,14 +4,14 @@ public class Bogo_sort {
 
     public static void main(String[] args) {
         int count = 0;
-        int[] arr = {7,5,2,1,3,6,9,8,4};
-        while(! isOrdered(arr)){
+        int[] arr = {7, 5, 2, 1, 3, 6, 9, 8, 4};
+        while (!isOrdered(arr)) {
             shuffle(arr);
             count++;
         }
-        System.out.println("排序次数"+count);
-        for(int i : arr){
-            System.out.print(i+" ");
+        System.out.println("排序次数" + count);
+        for (int i : arr) {
+            System.out.print(i + " ");
         }
     }
 
@@ -29,7 +29,7 @@ public class Bogo_sort {
     public static void shuffle(int[] arr) {
         int temp;
         for (int i = 0; i < arr.length; i++) {
-            int j = (int)(Math.random() * arr.length);
+            int j = (int) (Math.random() * arr.length);
             temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;

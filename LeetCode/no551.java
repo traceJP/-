@@ -9,27 +9,29 @@
 输出: True
 */
 package LeetCode;
+
 public class no551 {
     public static void main(String[] args) {
         String n = "A";
-        if(checkRecord(n)){
+        if (checkRecord(n)) {
             System.out.println("true");
-        }else{
+        } else {
             System.out.println("false");
         }
     }
+
     public static boolean checkRecord(String s) {
         int sum = 0;
-        for(int i = 0;i < s.length();i++)
-            if(s.charAt(i) == 'A')
+        for (int i = 0; i < s.length(); i++)
+            if (s.charAt(i) == 'A')
                 sum++;
-        for(int i = 0;i < s.length();i++){
-            if(i == s.length() - 2 || s.length() == 1)
+        for (int i = 0; i < s.length(); i++) {
+            if (i == s.length() - 2 || s.length() == 1)
                 break;
-            if(s.charAt(i) == 'L' && s.charAt(i+1) == 'L' && s.charAt(i+2) == 'L')
+            if (s.charAt(i) == 'L' && s.charAt(i + 1) == 'L' && s.charAt(i + 2) == 'L')
                 return false;
         }
-        if(sum > 1)
+        if (sum > 1)
             return false;
         else
             return true;

@@ -1,5 +1,7 @@
 package teacher;
+
 import java.util.Scanner;
+
 public class Object_Code3_20200528 {
     public static void main(String[] args) {
         Scanner Cin = new Scanner(System.in);
@@ -10,7 +12,7 @@ public class Object_Code3_20200528 {
         int tex;
         for (int i = 0; i < N; i++)
             for (int j = 0; j < i; j++)
-                if(sz[j] > sz[i]){
+                if (sz[j] > sz[i]) {
                     tex = sz[j];
                     sz[j] = sz[i];
                     sz[i] = tex;

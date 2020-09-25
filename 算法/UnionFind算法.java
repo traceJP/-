@@ -5,7 +5,7 @@ public class UnionFind算法 {
     private int[] id;
     private int count;
 
-    public UnionFind算法(int N){
+    public UnionFind算法(int N) {
         count = N;
         id = new int[N];
         for (int i = 0; i < N; i++) {
@@ -13,7 +13,7 @@ public class UnionFind算法 {
         }
     }
 
-    public int count(){
+    public int count() {
         return count;
     }
 
@@ -52,5 +52,5 @@ public class UnionFind算法 {
         }
     */
 
-    }
+}
 

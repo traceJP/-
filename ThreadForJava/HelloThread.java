@@ -11,10 +11,10 @@ public class HelloThread {
         t2.start();
 
         /*
-        * t1,t2被调整为（就绪）模式之后，此时将根据优先级别开始分配时间资源给t1线程和t2线程
-        * 然后t1,t2线程采用抢占式线程进行运行。
-        * 具体分配多少时间资源取决于jvm虚拟机中的算法。
-        */
+         * t1,t2被调整为（就绪）模式之后，此时将根据优先级别开始分配时间资源给t1线程和t2线程
+         * 然后t1,t2线程采用抢占式线程进行运行。
+         * 具体分配多少时间资源取决于jvm虚拟机中的算法。
+         */
 
     }
 
@@ -25,7 +25,7 @@ class Hello implements Runnable {    // 创建线程体
     @Override
     public void run() {
         int i = 0;
-        while(i < 5) {
+        while (i < 5) {
             System.out.println("Hellotone" + i);
             i++;
         }

@@ -15,27 +15,29 @@ package LeetCode;
 public class no202 {
     public static boolean isHappy(int n) {
 
-        for(int i = 0;i < 1000;i++){
-            if(n == 1){
+        for (int i = 0; i < 1000; i++) {
+            if (n == 1) {
                 return true;
-            }else{
+            } else {
                 n = kxsxh(n);
             }
         }
         return false;
     }
-    public static int kxsxh(int m){
+
+    public static int kxsxh(int m) {
         int num = 0;
-        for(int j = 0;j < 100;j++){
+        for (int j = 0; j < 100; j++) {
             int a = m % 10;
             m /= 10;
             num += a * a;
         }
         return num;
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         int a = 3;
-        if(isHappy(a))
+        if (isHappy(a))
             System.out.println("是开心数");
         else
             System.out.println("不是开心数");

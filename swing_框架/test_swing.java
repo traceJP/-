@@ -11,7 +11,7 @@ public class test_swing {
 
     public static void main(String[] args) {
 
-        Object[] q = {"nb", "woc" , "lihai"};
+        Object[] q = {"nb", "woc", "lihai"};
 
         JOptionPane a = new JOptionPane();
 

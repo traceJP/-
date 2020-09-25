@@ -10,7 +10,6 @@ public class Window {
     EventTrigger Eventtest = new EventTrigger();
 
 
-
     public void WindowJframe() {    // 顶层窗口
 
         JFrame SaoleiWindow = new JFrame("扫雷GAME");
@@ -59,7 +58,6 @@ public class Window {
     }
 
 
-
     private JPanel Lastwindow() {    // 雷区
 
         JPanel lastlable = new JPanel();
@@ -90,7 +88,6 @@ public class Window {
         return lastlable;
 
     }
-
 
 
 }

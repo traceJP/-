@@ -14,12 +14,12 @@
 最后选出 1 和 1，得到 0，最终数组转换为 [1]，这就是最后剩下那块石头的重量。
 */
 package LeetCode;
+
 public class no1046 {
     public static void main(String[] args) {
-        int[] n = new int[]{2,7,4,1,8,1};
+        int[] n = new int[]{2, 7, 4, 1, 8, 1};
         //System.out.println(lastStoneWeight(n));
     }
-
 
 
 }

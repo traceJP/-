@@ -2,17 +2,17 @@ package teacher;
 
 import java.util.Scanner;
 
-class Dog{
+class Dog {
 
     Scanner Cin = new Scanner(System.in);
 
-    public void set(){
+    public void set() {
         name = Cin.nextLine();
         color = Cin.nextLine();
         age = Cin.nextInt();
     }
 
-    public void get(){
+    public void get() {
         System.out.println("name:" + name + "\t" + "color:" + color + "\t" + "age:" + age);
     }
 

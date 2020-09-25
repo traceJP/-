@@ -13,28 +13,26 @@ public class EventTrigger {
 
     class MouseOpenButton extends MouseAdapter {    // 监听雷区鼠标左右键
 
-            public void mousePressed(MouseEvent e) {
+        public void mousePressed(MouseEvent e) {
 
 
-                for (int i = 0; i < EventAlgorithms.row; i++) {
+            for (int i = 0; i < EventAlgorithms.row; i++) {
 
-                    for (int j = 0; j < EventAlgorithms.col; j++) {
+                for (int j = 0; j < EventAlgorithms.col; j++) {
 
-                        if ((JButton) e.getSource() == EventAlgorithms.codeButton[i][j]) {    // 找到目标Button
+                    if ((JButton) e.getSource() == EventAlgorithms.codeButton[i][j]) {    // 找到目标Button
 
-                            if (e.getButton() == MouseEvent.BUTTON1) {    // 鼠标左键
+                        if (e.getButton() == MouseEvent.BUTTON1) {    // 鼠标左键
 
-                                Openlattice(i, j);
-                                return;
+                            Openlattice(i, j);
+                            return;
 
-                            }
+                        }
 
-                            if(e.getButton() == MouseEvent.BUTTON3) {    // 鼠标右键
+                        if (e.getButton() == MouseEvent.BUTTON3) {    // 鼠标右键
 
-                                insertFlag(i, j);
-                                return;
-
-                            }
+                            insertFlag(i, j);
+                            return;
 
                         }
 
@@ -44,14 +42,16 @@ public class EventTrigger {
 
             }
 
+        }
+
         private void Openlattice(int i, int j) {    // 鼠标左键总方法
 
-            if(EventAlgorithms.codeDisplay[i][j] == 1 || EventAlgorithms.codeDisplay[i][j] == 2 || EventAlgorithms.codeDisplay[i][j] == 3){
+            if (EventAlgorithms.codeDisplay[i][j] == 1 || EventAlgorithms.codeDisplay[i][j] == 2 || EventAlgorithms.codeDisplay[i][j] == 3) {
                 return;    // 状态为翻开或标记时，不予以打开
             }
 
 
-            if(EventAlgorithms.code[i][j] == EventAlgorithms.mine){
+            if (EventAlgorithms.code[i][j] == EventAlgorithms.mine) {
 
                 EventAlgorithms.codeButton[i][j].setBackground(Color.red);
                 EventAlgorithms.codeButton[i][j].setText("*");
@@ -59,12 +59,12 @@ public class EventTrigger {
                 //调用踩雷死亡游戏结束方法
                 gameOver();
 
-            }else if(EventAlgorithms.code[i][j] == 0) {
+            } else if (EventAlgorithms.code[i][j] == 0) {
 
                 //调用级联打开方法
                 cascadeOpen(i, j);
 
-            }else {
+            } else {
 
                 //打开按钮显示文字
                 EventAlgorithms.codeDisplay[i][j] = 1;    // 状态改变为打开
@@ -73,7 +73,7 @@ public class EventTrigger {
 
             }
 
-            if(gameWinCondition()) {    // 游戏胜利条件
+            if (gameWinCondition()) {    // 游戏胜利条件
 
                 //调用游戏胜利结束方法
                 gameWin();
@@ -84,30 +84,30 @@ public class EventTrigger {
 
         private void cascadeOpen(int x, int y) {    // 级联打开     !需要优化!
 
-/*思想优化：当传入过来的buttonCode=0时，将该点坐标坐标x,y压入栈中，并检测该点周围是否还有其他点=0*/
+            /*思想优化：当传入过来的buttonCode=0时，将该点坐标坐标x,y压入栈中，并检测该点周围是否还有其他点=0*/
 
-            if(EventAlgorithms.codeDisplay[x][y] != 0){
+            if (EventAlgorithms.codeDisplay[x][y] != 0) {
                 return;
             }
 
             EventAlgorithms.codeDisplay[x][y] = 1;    // 状态改变为打开
             EventAlgorithms.codeButton[x][y].setBackground(Color.WHITE);
-            if(EventAlgorithms.code[x][y] == 0){
+            if (EventAlgorithms.code[x][y] == 0) {
                 EventAlgorithms.codeButton[x][y].setText("");
-            }else {
+            } else {
                 EventAlgorithms.codeButton[x][y].setText(String.valueOf(EventAlgorithms.code[x][y]));
             }
 
-            if(EventAlgorithms.code[x][y] == 0){
+            if (EventAlgorithms.code[x][y] == 0) {
 
-                cascadeOpen(x-1, y-1);
-                cascadeOpen(x-1, y);
-                cascadeOpen(x-1, y+1);
-                cascadeOpen(x, y-1);
-                cascadeOpen(x, y+1);
-                cascadeOpen(x+1, y-1);
-                cascadeOpen(x+1, y);
-                cascadeOpen(x+1, y+1);
+                cascadeOpen(x - 1, y - 1);
+                cascadeOpen(x - 1, y);
+                cascadeOpen(x - 1, y + 1);
+                cascadeOpen(x, y - 1);
+                cascadeOpen(x, y + 1);
+                cascadeOpen(x + 1, y - 1);
+                cascadeOpen(x + 1, y);
+                cascadeOpen(x + 1, y + 1);
 
             }
 
@@ -165,18 +165,18 @@ public class EventTrigger {
             for (int i = 0; i < EventAlgorithms.row; i++) {
                 for (int j = 0; j < EventAlgorithms.col; j++) {
 
-                    if(EventAlgorithms.codeDisplay[i][j] == 0) {    // 如果有一个未翻开的就不会赢
+                    if (EventAlgorithms.codeDisplay[i][j] == 0) {    // 如果有一个未翻开的就不会赢
                         return false;
                     }
 
-                    if(EventAlgorithms.codeDisplay[i][j] == 1) {
+                    if (EventAlgorithms.codeDisplay[i][j] == 1) {
                         sum++;
                     }
 
                 }
             }
 
-            if(sum == EventAlgorithms.row * EventAlgorithms.col - EventAlgorithms.Quantity) {
+            if (sum == EventAlgorithms.row * EventAlgorithms.col - EventAlgorithms.Quantity) {
                 return true;
             }
 
@@ -250,7 +250,7 @@ public class EventTrigger {
 
             }
 
-            if(gameWinCondition()) {    // 游戏胜利条件
+            if (gameWinCondition()) {    // 游戏胜利条件
 
                 //调用游戏胜利结束方法
                 gameWin();
@@ -268,26 +268,23 @@ public class EventTrigger {
 
             String Difficulty = "普通";
 
-            if(EventAlgorithms.Quantity == 66) {
+            if (EventAlgorithms.Quantity == 66) {
                 Difficulty = "简单";
-            }else
-                if(EventAlgorithms.Quantity == 99) {
-                    Difficulty = "普通";
-            }else
-                if(EventAlgorithms.Quantity == 123) {
-                    Difficulty = "困难";
-                }else
-                    if(EventAlgorithms.Quantity == 233){
-                        Difficulty = "噩梦";
-                    }
+            } else if (EventAlgorithms.Quantity == 99) {
+                Difficulty = "普通";
+            } else if (EventAlgorithms.Quantity == 123) {
+                Difficulty = "困难";
+            } else if (EventAlgorithms.Quantity == 233) {
+                Difficulty = "噩梦";
+            }
 
 
             JOptionPane Minesum = new JOptionPane();
             JOptionPane.showConfirmDialog(Minesum,
-                    "当前游戏难度为："+ Difficulty +
+                    "当前游戏难度为：" + Difficulty +
                             "\n\n一共有 " + EventAlgorithms.Quantity + " 个雷\n" +
                             "您已标记了 " + EventAlgorithms.MineSum + " 个雷\n" +
-                            "理论剩余 " + (EventAlgorithms.Quantity-EventAlgorithms.MineSum) + " 个雷\n",
+                            "理论剩余 " + (EventAlgorithms.Quantity - EventAlgorithms.MineSum) + " 个雷\n",
                     "场面参数", JOptionPane.WARNING_MESSAGE, JOptionPane.WARNING_MESSAGE);
 
         }
@@ -310,28 +307,28 @@ public class EventTrigger {
                     "难度更改",
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, text, text[3]);
 
-            if(n == 0){
+            if (n == 0) {
 
                 EventAlgorithms.Quantity = 66;
                 new EventTrigger().new MouseOpenButton().LastwindowLoadagain();
 
             }
 
-            if(n == 1){
+            if (n == 1) {
 
                 EventAlgorithms.Quantity = 99;
                 new EventTrigger().new MouseOpenButton().LastwindowLoadagain();
 
             }
 
-            if(n == 2){
+            if (n == 2) {
 
                 EventAlgorithms.Quantity = 123;
                 new EventTrigger().new MouseOpenButton().LastwindowLoadagain();
 
             }
 
-            if(n == 3){
+            if (n == 3) {
 
                 EventAlgorithms.Quantity = 166;
                 new EventTrigger().new MouseOpenButton().LastwindowLoadagain();
@@ -376,7 +373,7 @@ public class EventTrigger {
                     "游戏规则",
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, text, text[0]);
 
-            if(n == 1){
+            if (n == 1) {
 
                 JOptionPane Idonotknow = new JOptionPane();
                 JOptionPane.showConfirmDialog(Idonotknow,
@@ -407,7 +404,7 @@ public class EventTrigger {
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, text, text[0]);
 
 
-            if(n == 0) {
+            if (n == 0) {
 
                 JOptionPane aboutAuthor = new JOptionPane();
                 JOptionPane.showConfirmDialog(aboutAuthor,
@@ -416,7 +413,7 @@ public class EventTrigger {
 
             }
 
-            if(n == 1) {
+            if (n == 1) {
 
                 JOptionPane aboutTheater = new JOptionPane();
                 JOptionPane.showConfirmDialog(aboutTheater,
@@ -440,7 +437,7 @@ public class EventTrigger {
 
             }
 
-            if(n == 2) {
+            if (n == 2) {
 
                 JOptionPane aboutVersion = new JOptionPane();
                 JOptionPane.showConfirmDialog(aboutVersion,

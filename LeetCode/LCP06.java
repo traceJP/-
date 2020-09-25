@@ -5,18 +5,20 @@
 解释：第一堆力扣币最少需要拿 2 次，第二堆最少需要拿 1 次，第三堆最少需要拿 1 次，总共 4 次即可拿完。
 */
 package LeetCode;
+
 public class LCP06 {
-    public static void main(String[] args){
-        int [] N = new int[]{2,3,10};
+    public static void main(String[] args) {
+        int[] N = new int[]{2, 3, 10};
         System.out.println(minCount(N));
     }
+
     public static int minCount(int[] coins) {
         int num = 0;
-        for(int i = coins.length - 1;i >= 0;i--){
-            if(coins[i] % 2 == 0){
+        for (int i = coins.length - 1; i >= 0; i--) {
+            if (coins[i] % 2 == 0) {
                 num += coins[i] / 2;
                 continue;
-            }else{
+            } else {
                 num += coins[i] / 2 + 1;
                 continue;
             }

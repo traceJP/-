@@ -2,18 +2,19 @@
 package LeetCode;
 
 public class no231 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int a = 131071;
-        if(mcf(a)){
+        if (mcf(a)) {
             System.out.println("Yes");
-        }else{
+        } else {
             System.out.println("No");
         }
     }
-    public static boolean mcf(int n){
-        if(n < 0)
+
+    public static boolean mcf(int n) {
+        if (n < 0)
             return false;
-        for(int i = 0;i < 40;i++) {     //很少有比2的50次方大的数
+        for (int i = 0; i < 40; i++) {     //很少有比2的50次方大的数
             int num = 1;
             for (int j = 0; j < i; j++)
                 num *= 2;

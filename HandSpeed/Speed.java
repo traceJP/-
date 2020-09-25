@@ -27,6 +27,7 @@ class Window {    // 窗口类
         windowMax.add(boxTow());
         windowMax.setVisible(true);
     }
+
     private JPanel boxTow() {    // 二大盒
         JPanel test = new JPanel();
         test.setLayout(new GridLayout(0, 2));
@@ -34,13 +35,16 @@ class Window {    // 窗口类
         test.add(boxText());
         return test;
     }
+
     private JPanel boxText() {    // 右盒
         JPanel boxtext = new JPanel();
         boxtext.add(boxShow());
         boxtext.add(boxSetUp());
         return boxtext;
     }
+
     static JTextArea Show = new JTextArea(10, 13);
+
     private JTextArea boxShow() {    // 显示盒
         Show.setEditable(false);    // 文本只读
         Show.setFont(new Font("游戏提示", 0, 15));
@@ -51,6 +55,7 @@ class Window {    // 窗口类
                 "~历史最高记录为" + "000.0下/min\n");
         return Show;
     }
+
     private JPanel boxSetUp() {    // 按钮盒
         JPanel boxset = new JPanel();
         boxset.add(reset());
@@ -65,12 +70,14 @@ class Window {    // 窗口类
         button.setText("重置");
         return button;
     }
+
     private JButton about() {
         JButton button = new JButton();
         button.addMouseListener(new eventAbout());
         button.setText("关于");
         return button;
     }
+
     private JButton windowButton() {
         JButton button = new JButton();
         button.addMouseListener(new eventWindowButton());
@@ -85,27 +92,25 @@ class Timer extends Thread {
     static double Record = 0;
     static long programStart = 0;
     static boolean milliStop = true;
+
     @Override
     public void run() {
         milliStop = true;
-        while(milliStop) {
+        while (milliStop) {
             long elapsed = System.currentTimeMillis() - programStart;
             int milli = (int) (elapsed % 1000);    // 毫秒
             elapsed /= 1000;
             int second = (int) (elapsed % 60);    // 秒
             elapsed /= 60;
-            Window.Show.replaceRange(String.format("%02d:%03d",second,milli), 59, 65);
-            if(second != 0) {
+            Window.Show.replaceRange(String.format("%02d:%03d", second, milli), 59, 65);
+            if (second != 0) {
 
-                 // <字符流读写功能代码>
+                // <字符流读写功能代码>
 
-                double avgSpeed = (eventWindowButton.count*60) / second;
-
-
+                double avgSpeed = (eventWindowButton.count * 60) / second;
 
 
-
-                if(avgSpeed < 100) {
+                if (avgSpeed < 100) {
                     Window.Show.replaceRange(String.valueOf(avgSpeed), 76, 80);
                 } else {
                     Window.Show.replaceRange(String.valueOf(avgSpeed), 76, 81);
@@ -123,31 +128,30 @@ class Timer extends Thread {
 }
 
 
-
 /*事件处理*/
 class eventWindowButton extends MouseAdapter {    // 主按钮事件
     public static int count = 0;
+
     @Override
     public void mouseClicked(MouseEvent e) {
         count++;
-        if(count < 10) {
+        if (count < 10) {
             Window.Show.replaceRange(String.valueOf(count), 46, 47);
-        } else
-            if(count < 100) {
-                Window.Show.replaceRange(String.valueOf(count), 46, 48);
-            } else
-                if(count < 1000) {
-                    Window.Show.replaceRange(String.valueOf(count), 46, 49);
-                }
+        } else if (count < 100) {
+            Window.Show.replaceRange(String.valueOf(count), 46, 48);
+        } else if (count < 1000) {
+            Window.Show.replaceRange(String.valueOf(count), 46, 49);
+        }
     }
 }
 
 
 class eventWindowButtonStart extends MouseAdapter {
     static boolean first = true;    // 是否为第一次单击主按钮
+
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(first) {
+        if (first) {
             Timer.programStart = System.currentTimeMillis();    // 获取初始时间戳
             Timer timeOne = new Timer();
             timeOne.start();
@@ -159,15 +163,13 @@ class eventWindowButtonStart extends MouseAdapter {
 class eventReset extends MouseAdapter {    // 重置按钮事件
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(eventWindowButton.count < 10) {
+        if (eventWindowButton.count < 10) {
             Window.Show.replaceRange("0", 46, 47);
-        } else
-            if(eventWindowButton.count < 100) {
-                Window.Show.replaceRange("0 ", 46, 48);
-            } else
-                if(eventWindowButton.count < 1000) {
-                    Window.Show.replaceRange("0  ", 46, 49);
-                }
+        } else if (eventWindowButton.count < 100) {
+            Window.Show.replaceRange("0 ", 46, 48);
+        } else if (eventWindowButton.count < 1000) {
+            Window.Show.replaceRange("0  ", 46, 49);
+        }
         eventWindowButton.count = 0;
         Timer.milliStop = false;    // 终结计时器线程
         Window.Show.replaceRange("00:000", 59, 65);
@@ -176,6 +178,7 @@ class eventReset extends MouseAdapter {    // 重置按钮事件
 
     }
 }
+
 class eventAbout extends MouseAdapter {    // 关于按钮事件
     @Override
     public void mouseClicked(MouseEvent e) {

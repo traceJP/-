@@ -32,7 +32,7 @@ class meiju1 {
 }
 */
 
-enum  meiju1 {
+enum meiju1 {
 
     NO1("张三", "nb"),
     NO2("李四", "wc"),

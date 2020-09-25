@@ -26,7 +26,7 @@ public class Algorithms {
 
     }
 
-    private void Buriedmine(){    // 埋雷
+    private void Buriedmine() {    // 埋雷
 
         Random n = new Random();
 
@@ -35,38 +35,38 @@ public class Algorithms {
             int a = n.nextInt(row);    // 行随机数
             int b = n.nextInt(col);    // 列随机数
 
-            if(code[a][b] == mine) {
+            if (code[a][b] == mine) {
                 i--;
-            }else {
+            } else {
                 code[a][b] = mine;
             }
         }
 
     }
 
-    private void Calculation(){    // 计算雷周围的数字
+    private void Calculation() {    // 计算雷周围的数字
 
-        for (int i = 1; i < col-1; i++) {
+        for (int i = 1; i < col - 1; i++) {
 
-            if(code[0][i] == mine){
+            if (code[0][i] == mine) {
                 continue;
             }
 
             int count = 0;
 
-            if(code[0][i-1] == mine) {    //左
+            if (code[0][i - 1] == mine) {    //左
                 count++;
             }
-            if(code[0][i+1] == mine) {    //右
+            if (code[0][i + 1] == mine) {    //右
                 count++;
             }
-            if(code[1][i-1] == mine) {    //左下
+            if (code[1][i - 1] == mine) {    //左下
                 count++;
             }
-            if(code[1][i] == mine) {    //下
+            if (code[1][i] == mine) {    //下
                 count++;
             }
-            if(code[1][i+1] == mine) {    //右下
+            if (code[1][i + 1] == mine) {    //右下
                 count++;
             }
 
@@ -74,55 +74,55 @@ public class Algorithms {
 
         }    // 上边框数字计算（不包含角）
 
-        for (int i = 1; i < col-1; i++) {
+        for (int i = 1; i < col - 1; i++) {
 
-            if(code[row-1][i] == mine){
+            if (code[row - 1][i] == mine) {
                 continue;
             }
 
             int count = 0;
 
-            if(code[row-1-1][i-1] == mine) {    // 左上
+            if (code[row - 1 - 1][i - 1] == mine) {    // 左上
                 count++;
             }
-            if(code[row-1-1][i] == mine) {    // 上
+            if (code[row - 1 - 1][i] == mine) {    // 上
                 count++;
             }
-            if(code[row-1-1][i+1] == mine) {    //右上
+            if (code[row - 1 - 1][i + 1] == mine) {    //右上
                 count++;
             }
-            if(code[row-1][i-1] == mine) {    //左
+            if (code[row - 1][i - 1] == mine) {    //左
                 count++;
             }
-            if(code[row-1][i+1] == mine) {    //右
+            if (code[row - 1][i + 1] == mine) {    //右
                 count++;
             }
 
-            code[row-1][i] = count;
+            code[row - 1][i] = count;
 
         }    // 下边框数字计算（不包含角）
 
-        for (int i = 1; i < row-1; i++) {
+        for (int i = 1; i < row - 1; i++) {
 
-            if(code[i][0] == mine){
+            if (code[i][0] == mine) {
                 continue;
             }
 
             int count = 0;
 
-            if(code[i-1][0] == mine) {    // 上
+            if (code[i - 1][0] == mine) {    // 上
                 count++;
             }
-            if(code[i-1][1] == mine) {    //右上
+            if (code[i - 1][1] == mine) {    //右上
                 count++;
             }
-            if(code[i][1] == mine) {    //右
+            if (code[i][1] == mine) {    //右
                 count++;
             }
-            if(code[i+1][0] == mine) {    //下
+            if (code[i + 1][0] == mine) {    //下
                 count++;
             }
-            if(code[i+1][1] == mine) {    //右下
+            if (code[i + 1][1] == mine) {    //右下
                 count++;
             }
 
@@ -130,65 +130,65 @@ public class Algorithms {
 
         }    // 左边框数字计算（不包含角）
 
-        for (int i = 1; i < row-1; i++) {
+        for (int i = 1; i < row - 1; i++) {
 
-            if(code[i][col-1] == mine){
+            if (code[i][col - 1] == mine) {
                 continue;
             }
 
             int count = 0;
 
-            if(code[i-1][col-1-1] == mine) {    // 左上
+            if (code[i - 1][col - 1 - 1] == mine) {    // 左上
                 count++;
             }
-            if(code[i-1][col-1] == mine) {    // 上
+            if (code[i - 1][col - 1] == mine) {    // 上
                 count++;
             }
-            if(code[i][col-1-1] == mine) {    //左
+            if (code[i][col - 1 - 1] == mine) {    //左
                 count++;
             }
-            if(code[i+1][col-1-1] == mine) {    //左下
+            if (code[i + 1][col - 1 - 1] == mine) {    //左下
                 count++;
             }
-            if(code[i+1][col-1] == mine) {    //下
+            if (code[i + 1][col - 1] == mine) {    //下
                 count++;
             }
 
-            code[i][col-1] = count;
+            code[i][col - 1] = count;
 
         }    // 右边框数字计算（不包含角）
 
-        for (int i = 1; i < row-1; i++) {
-            for (int j = 1; j < col-1; j++) {
+        for (int i = 1; i < row - 1; i++) {
+            for (int j = 1; j < col - 1; j++) {
 
-                if(code[i][j] == mine){
+                if (code[i][j] == mine) {
                     continue;
                 }
 
                 int count = 0;
 
-                if(code[i-1][j-1] == mine) {    // 左上
+                if (code[i - 1][j - 1] == mine) {    // 左上
                     count++;
                 }
-                if(code[i-1][j] == mine) {    // 上
+                if (code[i - 1][j] == mine) {    // 上
                     count++;
                 }
-                if(code[i-1][j+1] == mine) {    //右上
+                if (code[i - 1][j + 1] == mine) {    //右上
                     count++;
                 }
-                if(code[i][j-1] == mine) {    //左
+                if (code[i][j - 1] == mine) {    //左
                     count++;
                 }
-                if(code[i][j+1] == mine) {    //右
+                if (code[i][j + 1] == mine) {    //右
                     count++;
                 }
-                if(code[i+1][j-1] == mine) {    //左下
+                if (code[i + 1][j - 1] == mine) {    //左下
                     count++;
                 }
-                if(code[i+1][j] == mine) {    //下
+                if (code[i + 1][j] == mine) {    //下
                     count++;
                 }
-                if(code[i+1][j+1] == mine) {    //右下
+                if (code[i + 1][j + 1] == mine) {    //右下
                     count++;
                 }
 
@@ -200,18 +200,19 @@ public class Algorithms {
 
         CalculationAngle();    // 四角数字计算
     }
-    private void CalculationAngle(){
+
+    private void CalculationAngle() {
 
         int count = 0;
 
-        if(code[0][0] != mine) {
-            if(code[0][1] == mine) {
+        if (code[0][0] != mine) {
+            if (code[0][1] == mine) {
                 count++;
             }
-            if(code[1][0] == mine) {
+            if (code[1][0] == mine) {
                 count++;
             }
-            if(code[1][1] == mine) {
+            if (code[1][1] == mine) {
                 count++;
             }
             code[0][0] = count;
@@ -219,47 +220,47 @@ public class Algorithms {
 
         count = 0;
 
-        if(code[0][col-1] != mine) {
-            if(code[0][col-1-1] == mine) {
+        if (code[0][col - 1] != mine) {
+            if (code[0][col - 1 - 1] == mine) {
                 count++;
             }
-            if(code[1][col-1] == mine) {
+            if (code[1][col - 1] == mine) {
                 count++;
             }
-            if(code[1][col-1-1] == mine) {
+            if (code[1][col - 1 - 1] == mine) {
                 count++;
             }
-            code[0][col-1] = count;
+            code[0][col - 1] = count;
         }    // 右上角
 
         count = 0;
 
-        if(code[row-1][0] != mine) {
-            if(code[row-1-1][0] == mine) {
+        if (code[row - 1][0] != mine) {
+            if (code[row - 1 - 1][0] == mine) {
                 count++;
             }
-            if(code[row-1][1] == mine) {
+            if (code[row - 1][1] == mine) {
                 count++;
             }
-            if(code[row-1-1][1] == mine) {
+            if (code[row - 1 - 1][1] == mine) {
                 count++;
             }
-            code[row-1][0] = count;
+            code[row - 1][0] = count;
         }    // 左下角
 
         count = 0;
 
-        if(code[row-1][col-1] != mine) {
-            if(code[row-1][col-1-1] == mine) {
+        if (code[row - 1][col - 1] != mine) {
+            if (code[row - 1][col - 1 - 1] == mine) {
                 count++;
             }
-            if(code[row-1-1][col-1] == mine) {
+            if (code[row - 1 - 1][col - 1] == mine) {
                 count++;
             }
-            if(code[row-1-1][col-1-1] == mine) {
+            if (code[row - 1 - 1][col - 1 - 1] == mine) {
                 count++;
             }
-            code[row-1][col-1] = count;
+            code[row - 1][col - 1] = count;
         }    // 右下角
 
     }

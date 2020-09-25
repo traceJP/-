@@ -1,21 +1,23 @@
 package teacher;
 
-class Teacher{
+class Teacher {
 
-    public Teacher(String name){
+    public Teacher(String name) {
         this.name = name;
     }
-    public Teacher(String name, int age){
+
+    public Teacher(String name, int age) {
         this.name = name;
         this.age = age;
     }
-    public Teacher(String name, int age, String affiliatedBranch){
+
+    public Teacher(String name, int age, String affiliatedBranch) {
         this.name = name;
         this.age = age;
         this.affiliatedBranch = affiliatedBranch;
     }
 
-    public void Cout(){
+    public void Cout() {
         System.out.println("name:" + name + "\t" + "age:" + age + "\t" + "affiliatedBranch:" + affiliatedBranch);
     }
 

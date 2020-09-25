@@ -6,20 +6,22 @@
 
 */
 package LeetCode;
+
 public class no977 {
-    public static void main(String[] args){
-        int[] a = new int[]{-4,-1,0,3,10};
+    public static void main(String[] args) {
+        int[] a = new int[]{-4, -1, 0, 3, 10};
         int[] cin = sortedSquares(a);
-        for(int i = 0;i < a.length;i++)
+        for (int i = 0; i < a.length; i++)
             System.out.println(cin[i]);
     }
+
     public static int[] sortedSquares(int[] A) {
-        for(int i = 0;i < A.length;i++)  //平方
+        for (int i = 0; i < A.length; i++)  //平方
             A[i] *= A[i];
         int t;
-        for(int i = 0;i < A.length;i++)     //排序
-            for(int j = 0;j < i;j++){
-                if(A[i] < A[j]){
+        for (int i = 0; i < A.length; i++)     //排序
+            for (int j = 0; j < i; j++) {
+                if (A[i] < A[j]) {
                     t = A[j];
                     A[j] = A[i];
                     A[i] = t;

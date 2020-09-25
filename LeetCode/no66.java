@@ -8,25 +8,27 @@
 解释: 输入数组表示数字 999 + 1。
 */
 package LeetCode;
+
 public class no66 {
     public static void main(String[] args) {
-        int[] n = new int[]{9,9,9};
+        int[] n = new int[]{9, 9, 9};
         int[] a = plusOne(n);
-        for(int i = 0;i < a.length; i++)
-            System.out.println(a[i] + "\t" );
+        for (int i = 0; i < a.length; i++)
+            System.out.println(a[i] + "\t");
     }
+
     public static int[] plusOne(int[] digits) {
         digits[digits.length - 1] += 1;
-        for(int i = digits.length - 1;i > 0; i--)
-            if(digits[i] >= 10){
+        for (int i = digits.length - 1; i > 0; i--)
+            if (digits[i] >= 10) {
                 digits[i] -= 10;
                 digits[i - 1] += 1;
             }
-        if(digits[0] >= 10){
+        if (digits[0] >= 10) {
             int[] digits_zero = new int[digits.length + 1];
             digits[0] -= 10;
             digits_zero[0] = 1;
-            for(int i = 0;i < digits.length; i++)
+            for (int i = 0; i < digits.length; i++)
                 digits_zero[i + 1] = digits[i];
             return digits_zero;
         }

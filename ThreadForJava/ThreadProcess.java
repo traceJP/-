@@ -9,11 +9,11 @@ public class ThreadProcess {
 
         t.start();    // 调整第二线程为可Runnable状态
 
-        while(true) {
+        while (true) {
 
             System.out.println("Good Morning主线程" + i++);
 
-            if(i == 2 && t.isAlive()) {    // 当主线程的i = 2时，使用join使主线程滞留。 第二线程不在运行时刻isAlive返回false
+            if (i == 2 && t.isAlive()) {    // 当主线程的i = 2时，使用join使主线程滞留。 第二线程不在运行时刻isAlive返回false
                 System.out.println("主线程即将被中断！");
 
                 /*可以注释掉t.join语句块看看线程运行的流程：应当为主线程运行完毕之后，再运行第二线程*/
@@ -26,7 +26,7 @@ public class ThreadProcess {
 
             }
 
-            if(i == 5) {
+            if (i == 5) {
                 break;
             }
 
@@ -44,7 +44,7 @@ class HelloProcess extends Thread {
         System.out.println("Hello线程正在运行中");
 
         int i = 0;
-        while(i < 5) {
+        while (i < 5) {
             System.out.println("Hello第二线程" + i);
             i++;
         }

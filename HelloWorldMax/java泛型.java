@@ -1,6 +1,6 @@
 package HelloWorldMax;
 
-class Box<T>{       //泛型类，参数泛型为T
+class Box<T> {       //泛型类，参数泛型为T
 
     T a;
 
@@ -8,7 +8,7 @@ class Box<T>{       //泛型类，参数泛型为T
         System.out.println(a);
     }
 
-    public <U> void Coutgo(U ucan){       //定义一个泛化方法Coutgo，调用时传入一个泛化参数ucan
+    public <U> void Coutgo(U ucan) {       //定义一个泛化方法Coutgo，调用时传入一个泛化参数ucan
         System.out.println("ucan" + "=" + ucan);
     }
 

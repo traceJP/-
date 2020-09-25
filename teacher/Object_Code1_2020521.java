@@ -1,5 +1,7 @@
 package teacher;
+
 import java.util.Scanner;
+
 public class Object_Code1_2020521 {
     public static void main(String[] args) {
         Scanner Cin = new Scanner(System.in);

@@ -12,7 +12,7 @@ public class javafromsushu {
         number = input.nextInt();
 
         for (n = 2; n < number; n++) {
-            if(number % n == 0){
+            if (number % n == 0) {
                 sum += n;
             }
         }

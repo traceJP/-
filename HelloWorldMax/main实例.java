@@ -3,16 +3,20 @@ package HelloWorldMax;
 public class main实例 {
     private final String name;
     private int count;
-    public main实例(String id){
+
+    public main实例(String id) {
         name = id;
     }
-    public void increment(){
+
+    public void increment() {
         count++;
     }
-    public int tally(){
+
+    public int tally() {
         return count;
     }
-    public String toString_main实例(){
+
+    public String toString_main实例() {
         return count + " " + name;
     }
 
@@ -23,6 +27,6 @@ public class main实例 {
         heads.increment();
         tails.increment();
         System.out.println(heads + " " + tails);
-        System.out.println( heads.tally() + tails.tally() );
+        System.out.println(heads.tally() + tails.tally());
     }
 }

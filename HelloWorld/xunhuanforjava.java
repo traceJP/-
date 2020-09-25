@@ -14,14 +14,14 @@ public class xunhuanforjava {
     }
 */
 
-public static void main(String[] args){
-    double i = 1;
-    double j = 1;
-    double sum = 0;
-    for(i = 1;i < 100;i += 2){
-        sum += (1 / i) * j;
-        j *= -1;
+    public static void main(String[] args) {
+        double i = 1;
+        double j = 1;
+        double sum = 0;
+        for (i = 1; i < 100; i += 2) {
+            sum += (1 / i) * j;
+            j *= -1;
+        }
+        System.out.println("sum=" + sum);
     }
-    System.out.println("sum="+sum);
-}
 }

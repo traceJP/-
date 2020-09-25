@@ -10,7 +10,7 @@ public class ThreadAbort {
         t.setPriority(Thread.MAX_PRIORITY);
         t.start();
 
-        while(i < 10000) {
+        while (i < 10000) {
             System.out.println("Hello" + i++);
         }
 
@@ -28,7 +28,7 @@ class HelloAbort implements Runnable {    // 线程体
     @Override
     public void run() {
 
-        while(i < 10000) {
+        while (i < 10000) {
             System.out.println("Hi" + i++);
         }
 
